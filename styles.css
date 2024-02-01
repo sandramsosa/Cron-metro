@@ -1,0 +1,80 @@
+main {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 100px;
+  position: relative;
+  margin: 150px;
+}
+body{
+  background-color: rgb(191, 248, 229);
+}
+
+.circle {
+  border-radius: 50%;
+  width: 480px; 
+  height: 480px; 
+  border: 2px solid #fff;
+  color: #fff;
+  margin: 100px auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circle::before {
+  content: '';
+  border-radius: 50%;
+  z-index: -1;
+  position: absolute;
+  width: 640px; 
+  height: 640px; 
+  left: calc(50% - 320px); 
+  top: calc(50% - 320px); 
+  background-color: #1d1d1d;
+}
+
+.seconds-sphere {
+  width: 80px; 
+  height: 80px; 
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left: calc(50% - 40px); 
+  top: calc(50% - 40px);
+  animation: rotacion 60s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes rotacion {
+  from { transform: rotate(-90deg) translateX(240px); } 
+  to { transform: rotate(270deg) translateX(240px); } 
+}
+
+.buttons {
+  margin-top: 40px; 
+  display: inline-flex;
+}
+
+.paused {
+  height: 40px;
+  border-width: 20px 0 20px 40px; 
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-left: 60px; 
+  border-color: transparent transparent transparent #fff;
+  transition: 100ms all ease;
+  will-change: border-width;
+  border-style: solid;
+}
+
+.running {
+  border-style: double;
+  border-width: 0 0 0 40px; 
+}
+
+.stop {
+  background-color: #fff;
+  height: 40px; 
+  width: 40px; 
+  cursor: pointer;
+}
